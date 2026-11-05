@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product - Camazon</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="nav-header">
+    <div class="nav-top">
+      <a href="/" class="nav-logo"><h1>C<span>amazon</span></h1></a>
+      <a href="#" class="nav-delivery"><i class="fas fa-map-marker-alt"></i> Deliver to<br><span class="deliver-to">Egypt</span></a>
+      <div class="nav-search">
+        <select class="nav-search-category" id="searchCategory"><option value="">All</option></select>
+        <input type="text" class="nav-search-input" id="searchInput" placeholder="Search Camazon">
+        <button class="nav-search-btn" onclick="const q=document.getElementById('searchInput').value;if(q)window.location.href='/?search='+encodeURIComponent(q)"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="nav-links">
+        <a href="/admin/" class="nav-link-item"><span class="nav-line1">Hello, Admin</span><span class="nav-line2">Dashboard <i class="fas fa-caret-down"></i></span></a>
+        <a href="/compare.html" class="nav-link-item"><span class="nav-line1">Product</span><span class="nav-line2">Compare</span></a>
+        <a href="/compare.html" class="nav-link-item nav-cart"><i class="fas fa-balance-scale"></i><span class="cart-count" id="compareCount">0</span><span class="cart-text">Compare</span></a>
+      </div>
+    </div>
+    <nav class="nav-bottom">
+      <div class="nav-bottom-inner">
+        <a href="/" class="nav-all"><i class="fas fa-bars"></i> All</a>
+        <a href="/?category=Electronics">Electronics</a>
+        <a href="/?category=Clothing">Clothing</a>
+        <a href="/?category=Home%20%26%20Kitchen">Home & Kitchen</a>
+        <a href="/?category=Books">Books</a>
+        <a href="/?category=Sports">Sports</a>
+        <a href="/?category=Beauty">Beauty</a>
+        <a href="/compare.html">Compare Products</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ═══ BREADCRUMB ═══ -->
+  <div class="container">
+    <div class="breadcrumb" id="breadcrumb">
+      <a href="/">Home</a> <span>›</span> <span id="breadCategory">Loading...</span> <span>›</span> <span id="breadProduct">Loading...</span>
+    </div>
+  </div>
+
+  <!-- ═══ PRODUCT DETAIL ═══ -->
+  <div class="container">
+    <div class="product-detail" id="productDetail">
+      <!-- Left: Images -->
+      <div class="product-images">
+        <div class="main-image" id="mainImage">
+          <div class="spinner"></div>
+        </div>
+        <div class="thumb-strip" id="thumbStrip"></div>
+      </div>
+      
+      <!-- Right: Info -->
+      <div class="product-info" id="productInfo">
+        <div class="skeleton skeleton-text" style="width:80%;height:28px"></div>
+        <div class="skeleton skeleton-text" style="width:40%;height:20px"></div>
+        <div class="skeleton skeleton-text" style="width:30%;height:35px;margin-top:20px"></div>
+        <div class="skeleton skeleton-text" style="width:90%;height:60px;margin-top:20px"></div>
+      </div>
+    </div>
+
+    <!-- ═══ QUICK COMPARE ═══ -->
+    <div class="quick-compare" id="quickCompare" style="background:#fff;border-radius:8px;padding:25px;margin-top:20px;display:none;">
+      <h3><i class="fas fa-balance-scale"></i> Quick Compare with Another Product</h3>
+      <select id="compareWithSelect">
+        <option value="">Select a product to compare...</option>
+      </select>
+      <div id="quickCompareResult"></div>
+    </div>
+
+    <!-- ═══ RELATED PRODUCTS ═══ -->
+    <div class="related-products" id="relatedProducts" style="margin-top:20px">
+      <h2>Related Products You May Like</h2>
+      <div class="related-scroll" id="relatedScroll">
+        <div class="loading-spinner"><div class="spinner"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <div class="footer-top" style="margin-top:30px;">
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"><i class="fas fa-chevron-up"></i> Back to top</a>
+  </div>
+  <footer class="footer-main">
+    <div class="footer-columns">
+      <div class="footer-col"><h4>Get to Know Us</h4><a href="#">About Camazon</a><a href="#">Careers</a></div>
+      <div class="footer-col"><h4>Make Money with Us</h4><a href="#">Sell products</a><a href="#">Advertise</a></div>
+      <div class="footer-col"><h4>Camazon Payment</h4><a href="#">Business Card</a><a href="#">Shop with Points</a></div>
+      <div class="footer-col"><h4>Let Us Help You</h4><a href="#">Your Account</a><a href="#">Help</a></div>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <div class="footer-logo">C<span>amazon</span></div>
+    <div class="copyright">© 2026, Camazon.com, Inc. or its affiliates</div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="/js/product.js"></script>
+</body>
+</html>
+

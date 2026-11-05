@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camazon - Compare & Save</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="nav-header">
+    <div class="nav-top">
+      <a href="/" class="nav-logo">
+        <h1>C<span>amazon</span></h1>
+      </a>
+      <a href="#" class="nav-delivery">
+        <i class="fas fa-map-marker-alt"></i> Deliver to<br>
+        <span class="deliver-to">Egypt</span>
+      </a>
+      <div class="nav-search">
+        <select class="nav-search-category" id="searchCategory">
+          <option value="">All</option>
+        </select>
+        <input type="text" class="nav-search-input" id="searchInput" placeholder="Search Camazon">
+        <button class="nav-search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="nav-links">
+        <a href="/admin/" class="nav-link-item">
+          <span class="nav-line1">Hello, Admin</span>
+          <span class="nav-line2">Dashboard <i class="fas fa-caret-down"></i></span>
+        </a>
+        <a href="/compare.html" class="nav-link-item">
+          <span class="nav-line1">Product</span>
+          <span class="nav-line2">Compare</span>
+        </a>
+        <a href="/compare.html" class="nav-link-item nav-cart">
+          <i class="fas fa-balance-scale"></i>
+          <span class="cart-count" id="compareCount">0</span>
+          <span class="cart-text">Compare</span>
+        </a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    </div>
+    <nav class="nav-bottom">
+      <div class="nav-bottom-inner">
+        <a href="#" class="nav-all" id="allCategoriesBtn"><i class="fas fa-bars"></i> All</a>
+        <a href="#" data-category="Electronics">Electronics</a>
+        <a href="#" data-category="Clothing">Clothing</a>
+        <a href="#" data-category="Home & Kitchen">Home & Kitchen</a>
+        <a href="#" data-category="Books">Books</a>
+        <a href="#" data-category="Sports">Sports</a>
+        <a href="#" data-category="Beauty">Beauty</a>
+        <a href="/compare.html">Compare Products</a>
+        <a href="/admin/">Admin Panel</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ═══ HERO BANNER ═══ -->
+  <section class="hero-banner">
+    <div class="hero-slider" id="heroSlider">
+      <div class="hero-slide">
+        <div class="hero-content">
+          <h2>Compare & Save Big!</h2>
+          <p>Find the best deals by comparing products side by side</p>
+          <a href="/compare.html" class="hero-btn">Start Comparing <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="hero-slide">
+        <div class="hero-content">
+          <h2>Top Electronics Deals</h2>
+          <p>Up to 40% off on trending electronics</p>
+          <a href="#products" class="hero-btn">Shop Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="hero-slide">
+        <div class="hero-content">
+          <h2>New Arrivals Every Day</h2>
+          <p>Discover the latest products at unbeatable prices</p>
+          <a href="#products" class="hero-btn">Explore <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+    <button class="hero-arrow prev" id="heroPrev"><i class="fas fa-chevron-left"></i></button>
+    <button class="hero-arrow next" id="heroNext"><i class="fas fa-chevron-right"></i></button>
+    <div class="hero-dots" id="heroDots"></div>
+    <div class="hero-fade"></div>
+  </section>
+
+  <!-- ═══ CATEGORY CARDS ═══ -->
+  <div class="container">
+    <div class="category-cards" id="categoryCards">
+      <div class="category-card">
+        <h3>Electronics</h3>
+        <img src="https://picsum.photos/seed/elec/400/200" alt="Electronics">
+        <a href="#" data-category="Electronics">Shop now <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="category-card">
+        <h3>Home & Kitchen</h3>
+        <img src="https://picsum.photos/seed/home/400/200" alt="Home">
+        <a href="#" data-category="Home & Kitchen">Shop now <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="category-card">
+        <h3>Sports & Fitness</h3>
+        <img src="https://picsum.photos/seed/sport/400/200" alt="Sports">
+        <a href="#" data-category="Sports">Shop now <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="category-card">
+        <h3>Beauty & Care</h3>
+        <img src="https://picsum.photos/seed/beauty/400/200" alt="Beauty">
+        <a href="#" data-category="Beauty">Shop now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <div class="main-content" id="products">
+    <!-- Sidebar Filters -->
+    <aside class="sidebar-filter" id="sidebarFilter">
+      <div class="filter-section">
+        <h4>Category</h4>
+        <div id="categoryFilters"></div>
+      </div>
+      <div class="filter-section">
+        <h4>Price</h4>
+        <div class="price-range-inputs">
+          <input type="number" id="minPrice" placeholder="Min">
+          <span>-</span>
+          <input type="number" id="maxPrice" placeholder="Max">
+          <button class="btn-filter-go" id="priceFilterBtn">Go</button>
+        </div>
+      </div>
+      <div class="filter-section">
+        <h4>Customer Rating</h4>
+        <div id="ratingFilters">
+          <label class="filter-option">
+            <input type="radio" name="rating" value="4"> 
+            <span class="filter-stars">★★★★☆</span> & Up
+          </label>
+          <label class="filter-option">
+            <input type="radio" name="rating" value="3"> 
+            <span class="filter-stars">★★★☆☆</span> & Up
+          </label>
+          <label class="filter-option">
+            <input type="radio" name="rating" value="2"> 
+            <span class="filter-stars">★★☆☆☆</span> & Up
+          </label>
+        </div>
+      </div>
+      <div class="filter-section">
+        <h4>Brand</h4>
+        <div id="brandFilters"></div>
+      </div>
+      <button class="btn-clear-filters" id="clearFiltersBtn">
+        <i class="fas fa-times"></i> Clear All Filters
+      </button>
+    </aside>
+
+    <!-- Products Area -->
+    <div class="content-area">
+      <div class="results-bar">
+        <div class="results-count">Showing <span id="resultsCount">0</span> results</div>
+        <select class="sort-select" id="sortSelect">
+          <option value="">Sort by: Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="rating">Avg. Customer Rating</option>
+          <option value="reviews">Most Reviews</option>
+          <option value="newest">Newest Arrivals</option>
+          <option value="name">Name: A to Z</option>
+        </select>
+      </div>
+      <div class="product-grid" id="productGrid">
+        <!-- Loading skeletons -->
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ COMPARE FLOATING BAR ═══ -->
+  <div class="compare-bar" id="compareBar">
+    <div class="compare-bar-items" id="compareBarItems"></div>
+    <div class="compare-bar-text"><span id="compareBarCount">0</span> products selected</div>
+    <button class="btn-compare-now" onclick="window.location.href='/compare.html'">Compare Now <i class="fas fa-arrow-right"></i></button>
+    <button class="btn-compare-clear" id="compareClearBtn">Clear All</button>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <div class="footer-top">
+    <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+      <i class="fas fa-chevron-up"></i> Back to top
+    </a>
+  </div>
+  <footer class="footer-main">
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h4>Get to Know Us</h4>
+        <a href="#">About Camazon</a>
+        <a href="#">Careers</a>
+        <a href="#">Press Releases</a>
+        <a href="#">Camazon Science</a>
+      </div>
+      <div class="footer-col">
+        <h4>Make Money with Us</h4>
+        <a href="#">Sell products on Camazon</a>
+        <a href="#">Become an Affiliate</a>
+        <a href="#">Advertise Your Products</a>
+        <a href="#">Self-Publish with Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Camazon Payment</h4>
+        <a href="#">Camazon Business Card</a>
+        <a href="#">Shop with Points</a>
+        <a href="#">Reload Your Balance</a>
+        <a href="#">Currency Converter</a>
+      </div>
+      <div class="footer-col">
+        <h4>Let Us Help You</h4>
+        <a href="#">Your Account</a>
+        <a href="#">Your Orders</a>
+        <a href="#">Shipping & Delivery</a>
+        <a href="#">Returns & Replacements</a>
+        <a href="#">Help</a>
+      </div>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <div class="footer-logo">C<span>amazon</span></div>
+    <div class="copyright">© 2026, Camazon.com, Inc. or its affiliates</div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
+
